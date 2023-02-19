@@ -12,30 +12,28 @@ class FirebaseAuthRepositoryImpl @Inject constructor(
     private val firebaseAuth: FirebaseAuth
 ): AuthRepository {
 
-    override suspend fun login(email: String, password: String): Boolean {
+    override suspend fun login(email: String, password: String): String {
         return try {
-            var isSuccessful: Boolean = false
+            var userId: String = ""
             firebaseAuth.signInWithEmailAndPassword(email, password)
-                .addOnSuccessListener { isSuccessful = true }
-                .addOnFailureListener { isSuccessful = false }
+                .addOnSuccessListener { userId = it.user?.uid ?: ""}
                 .await()
-            isSuccessful
+            userId
         } catch (e: Exception) {
             Log.d("test", e.toString())
-            false
+            ""
         }
     }
 
-    override suspend fun signup(email: String, password: String): Boolean {
+    override suspend fun signup(email: String, password: String): String {
         return try {
-            var isSuccessful: Boolean = false
+            var userId: String = ""
             firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnSuccessListener { isSuccessful = true }
-                .addOnFailureListener { isSuccessful = false }
+                .addOnSuccessListener { userId = it.user?.uid ?: "" }
                 .await()
-            isSuccessful
+            userId
         } catch (e: Exception) {
-            false
+            ""
         }
     }
 

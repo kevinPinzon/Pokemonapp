@@ -1,6 +1,7 @@
 package com.example.pokemonapp.di
 
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,4 +18,9 @@ object FirebaseModule {
         return FirebaseAuth.getInstance()
     }
 
+    @Provides
+    @Singleton
+    fun provideRealtime(): FirebaseDatabase {
+        return FirebaseDatabase.getInstance()
+    }
 }

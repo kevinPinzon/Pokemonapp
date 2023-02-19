@@ -1,7 +1,9 @@
 package com.example.pokemonapp.di
 
 import com.example.pokemonapp.data.remote.FirebaseAuthRepositoryImpl
+import com.example.pokemonapp.data.remote.RealTimeUserRepositoryImpl
 import com.example.pokemonapp.domain.repository.AuthRepository
+import com.example.pokemonapp.domain.repository.UserRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -14,5 +16,9 @@ abstract class RepositoryModule {
     @Binds
     abstract fun bindAuthRepository(firebaseAuthRepositoryImpl: FirebaseAuthRepositoryImpl):
             AuthRepository
+
+    @Binds
+    abstract fun bindUserRepository(userRepositoryImpl: RealTimeUserRepositoryImpl):
+            UserRepository
 
 }
