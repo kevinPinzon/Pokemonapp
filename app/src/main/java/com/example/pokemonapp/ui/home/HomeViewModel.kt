@@ -10,10 +10,6 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
-    val text: LiveData<String> = _text
     val regionsLiveList: MutableLiveData<MutableList<PokeRegion>> = MutableLiveData()
 
     private val _progressState = MutableLiveData<Boolean>()
@@ -28,8 +24,6 @@ class HomeViewModel : ViewModel() {
             response?.body()?.let { list->
                 regionsLiveList.value = list.regionResult
             }
-
-            println("resultRegions: $regionsLiveList")
         }
     }
 

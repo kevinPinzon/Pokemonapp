@@ -3,13 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../../layout/custom_preview.xml" value="0.4235897435897436" />
         <entry key="app/src/main/res/drawable/ic_baseline_location_city_24.xml" value="0.182" />
         <entry key="app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.182" />
         <entry key="app/src/main/res/layout/activity_pokemon.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/fragment_addteam.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.4036458333333333" />
-        <entry key="app/src/main/res/layout/fragment_teams.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/fragment_pokedex.xml" value="0.41354166666666664" />
+        <entry key="app/src/main/res/layout/fragment_pokemonlist.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/fragment_pokemons.xml" value="0.19630192502532928" />
+        <entry key="app/src/main/res/layout/fragment_teams.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/pokedex_row.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/pokemon_row.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/region_row.xml" value="0.25" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.4036458333333333" />
       </map>

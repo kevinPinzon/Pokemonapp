@@ -14,7 +14,6 @@ class RegionItemViewHolder(binding: RegionRowBinding): RecyclerView.ViewHolder(b
     fun setItem(model: PokeRegion) {
         binding?.let { view->
             view.regionName = model.name
-//            view.textViewCountry.text = model.name
         }
     }
 }

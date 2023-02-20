@@ -27,7 +27,6 @@
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
 
         <TextView
-            android:id="@+id/textViewCountry"
             android:layout_width="0dp"
             android:layout_height="32dp"
             android:text="@{RegionName}"

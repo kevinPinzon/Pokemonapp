@@ -33,7 +33,7 @@ class RegionAdapter (private val listener: ClickListener):
         holder.setItem(itemList[position])
 
         holder.itemView.setOnClickListener {
-            listener.itemSelect(itemList[position])
+            listener.regionSelect(itemList[position])
         }
     }
 

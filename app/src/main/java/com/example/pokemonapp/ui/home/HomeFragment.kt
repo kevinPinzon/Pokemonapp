@@ -5,11 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
+import androidx.core.os.bundleOf
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.pokemonapp.R
 import com.example.pokemonapp.data.model.PokeRegion
 import com.example.pokemonapp.databinding.FragmentHomeBinding
 import com.example.pokemonapp.ui.adapter.RegionAdapter
@@ -21,7 +24,6 @@ class HomeFragment : Fragment(), ClickListener{
 
     private val viewModel: HomeViewModel by viewModels()
     private var mAdapter: RegionAdapter?= null
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +37,6 @@ class HomeFragment : Fragment(), ClickListener{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // inicializa recyclerview
         mAdapter = RegionAdapter(this)
         binding.recyclerview.layoutManager = LinearLayoutManager(context)
         binding.recyclerview.adapter = mAdapter
@@ -46,14 +47,14 @@ class HomeFragment : Fragment(), ClickListener{
     }
 
     private fun initObservers() {
+        viewModel.progressState.observe(viewLifecycleOwner) { show ->
+            binding.progress.isVisible = show
+        }
+
         viewModel.regionsLiveList.observe(viewLifecycleOwner) { state ->
             println("state: $state")
             mAdapter?.setItems(list = state)
             binding.progress.isInvisible = true
-        }
-
-        viewModel.progressState.observe(viewLifecycleOwner) { show ->
-            binding.progress.isVisible = show
         }
 
     }
@@ -63,12 +64,14 @@ class HomeFragment : Fragment(), ClickListener{
         _binding = null
     }
 
-    override fun itemSelect(data: PokeRegion) {
-        println("itemSelect: $data")
+    override fun regionSelect(data: PokeRegion) {
+        val bundle = bundleOf("regionName" to data.name)
+        findNavController().navigate(R.id.action_navigation_regions_to_navigation_pokemons,
+            bundle)
     }
 
 }
 
 interface ClickListener {
-    fun itemSelect(data: PokeRegion)
+    fun regionSelect(data: PokeRegion)
 }

@@ -4,9 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import com.example.pokemonapp.databinding.FragmentTeamsBinding
 
 class TeamsFragment : Fragment() {
@@ -14,22 +13,32 @@ class TeamsFragment : Fragment() {
     private var _binding: FragmentTeamsBinding? = null
     private val binding get() = _binding!!
 
+    private val viewModel: TeamsViewModel by viewModels()
+//    private var mAdapter: RegionAdapter?= null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(TeamsViewModel::class.java)
 
         _binding = FragmentTeamsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        return binding.root
+    }
 
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initObservers()
+        initListeners()
+
+    }
+
+    private fun initListeners() {
+    }
+
+    private fun initObservers() {
+
     }
 
     override fun onDestroyView() {

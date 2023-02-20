@@ -13,4 +13,8 @@ class PokemonRepository {
 
     suspend fun getRegions() = apiService?.getRegions("region")
 
+    suspend fun getPokedex(regionName: String) = apiService?.getPokedexes("region/$regionName")
+
+    suspend fun getPokemonByPokedex(pokedexName: String) = apiService?.getPokemonByPokedex("pokedex/$pokedexName")
+
 }
