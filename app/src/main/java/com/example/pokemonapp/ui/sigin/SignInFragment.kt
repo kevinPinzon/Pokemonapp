@@ -1,5 +1,6 @@
 package com.example.pokemonapp.ui.sigin
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.example.pokemonapp.PokemonActivity
 import com.example.pokemonapp.R
 import com.example.pokemonapp.databinding.SiginFragmentBinding
 import com.example.pokemonapp.utils.Resource
@@ -42,12 +44,14 @@ class SignInFragment : Fragment() {
             when(state) {
                 is Resource.Success -> {
                     handleLoading(isLoading = false)
-                    findNavController().navigate(R.id.action_nav_login_to_nav_home)
+//                    findNavController().navigate(R.id.action_nav_login_to_nav_home)
                     Toast.makeText(
                         requireContext(),
                         "Bienvenido",
                         Toast.LENGTH_SHORT
                     ).show()
+                    val card1 = Intent(activity, PokemonActivity::class.java)
+                    activity?.startActivity(card1)
                 }
                 is Resource.Error -> {
                     handleLoading(isLoading = false)
@@ -91,6 +95,8 @@ class SignInFragment : Fragment() {
 
             googleSignInButton.setOnClickListener {
                 viewModel.loginWithGoogle()
+                val card1 = Intent(activity, PokemonActivity::class.java)
+                activity?.startActivity(card1)
             }
         }
     }

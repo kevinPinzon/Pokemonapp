@@ -1,6 +1,6 @@
 package com.example.pokemonapp.domain.usecase
 
-import com.example.pokemonapp.domain.model.User
+import com.example.pokemonapp.data.model.User
 import com.example.pokemonapp.domain.repository.AuthRepository
 import com.example.pokemonapp.domain.repository.UserRepository
 import com.example.pokemonapp.utils.Resource

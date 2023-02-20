@@ -15,4 +15,8 @@
     <string name="password_hint">Contraseña</string>
     <string name="signup_button">Registrarse</string>
     <string name="login_button">Iniciar sesion</string>
+    <string name="title_activity_pokemon">PokemonActivity</string>
+    <string name="title_regions">Pokemon Regions</string>
+    <string name="title_teams">My Teams</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

@@ -1,6 +1,6 @@
 package com.example.pokemonapp.data.remote
 
-import com.example.pokemonapp.domain.model.User
+import com.example.pokemonapp.data.model.User
 import com.example.pokemonapp.domain.repository.UserRepository
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.getValue

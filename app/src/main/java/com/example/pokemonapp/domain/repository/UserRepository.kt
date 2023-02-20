@@ -1,6 +1,6 @@
 package com.example.pokemonapp.domain.repository
 
-import com.example.pokemonapp.domain.model.User
+import com.example.pokemonapp.data.model.User
 
 interface UserRepository {
 
