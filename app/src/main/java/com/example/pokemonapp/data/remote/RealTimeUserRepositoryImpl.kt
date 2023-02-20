@@ -3,6 +3,7 @@ package com.example.pokemonapp.data.remote
 import com.example.pokemonapp.domain.model.User
 import com.example.pokemonapp.domain.repository.UserRepository
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.getValue
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
@@ -30,7 +31,7 @@ class RealTimeUserRepositoryImpl @Inject constructor(
             realtime.getReference("users")
                 .child(userId).get()
                 .addOnSuccessListener {
-                    loggedUser = it.value as User
+                    loggedUser = it.getValue<User>() as User
                 }
                 .await()
             loggedUser

@@ -90,9 +90,7 @@ class SignInFragment : Fragment() {
             }
 
             googleSignInButton.setOnClickListener {
-                viewModel.login(
-                    binding.etEmail.text.toString(), binding.etPassword.text.toString()
-                )
+                viewModel.loginWithGoogle()
             }
         }
     }

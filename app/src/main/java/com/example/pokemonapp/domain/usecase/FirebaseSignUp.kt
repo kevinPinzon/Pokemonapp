@@ -17,7 +17,7 @@ class FirebaseSignUp @Inject constructor(
         emit(Resource.Loading)
         val userUID: String = authRepository.signup(email, password)
         if (userUID.isNotEmpty()) {
-            userRepository.createUser(User(userUID, name, email))
+            userRepository.createUser(User(userId = userUID, name = name, email = email))
             emit(Resource.Success(true))
         } else {
             emit(Resource.Error("SignUp error"))
