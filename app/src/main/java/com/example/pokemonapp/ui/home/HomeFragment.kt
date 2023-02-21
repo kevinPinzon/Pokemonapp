@@ -52,7 +52,6 @@ class HomeFragment : Fragment(), ClickListener{
         }
 
         viewModel.regionsLiveList.observe(viewLifecycleOwner) { state ->
-            println("state: $state")
             mAdapter?.setItems(list = state)
             binding.progress.isInvisible = true
         }

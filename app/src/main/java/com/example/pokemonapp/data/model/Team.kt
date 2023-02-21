@@ -1,11 +1,9 @@
 package com.example.pokemonapp.data.model
 
-
 data class Team(
     var id: String = "",
     var name: String = "",
-    var pokemons: MutableList<Pokemon> = mutableListOf(),
-    var idTrainer: String,
+    var pokemons: MutableList<Pokemon> = mutableListOf()
 )
 
 data class Pokemon(

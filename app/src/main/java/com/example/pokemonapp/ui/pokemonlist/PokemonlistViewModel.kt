@@ -66,11 +66,11 @@ class PokemonlistViewModel @Inject constructor(
         }
     }
 
-    fun createTeam(team: Team, pokemonSelected: ArrayList<PokemonSpecie>) {
+    fun createTeam(team: Team, pokemonSelected: ArrayList<PokemonSpecie>, userID: String) {
         viewModelScope.launch {
             getPokemonData(pokemonSelected)
             team.pokemons = pokemonListData
-            createTeamUseCase(team).onEach {
+            createTeamUseCase(team, userID).onEach {
                 _creatTeamState.value = it
             }.launchIn(viewModelScope)
         }

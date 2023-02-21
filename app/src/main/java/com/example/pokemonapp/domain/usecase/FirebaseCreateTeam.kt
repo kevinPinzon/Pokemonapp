@@ -11,9 +11,9 @@ class FirebaseCreateTeam @Inject constructor(
     private val teamRepository: TeamRepository
 ) {
 
-    suspend operator fun invoke(team: Team): Flow<Resource<Boolean>> = flow {
+    suspend operator fun invoke(team: Team, userId: String): Flow<Resource<Boolean>> = flow {
         emit(Resource.Loading)
-        if (teamRepository.createTeam(team)) {
+        if (teamRepository.createTeam(team, userId)) {
             emit(Resource.Success(true))
         } else {
             emit(Resource.Error("create team error"))

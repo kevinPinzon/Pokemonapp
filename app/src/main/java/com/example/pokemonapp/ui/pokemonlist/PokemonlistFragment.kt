@@ -31,7 +31,7 @@ class PokemonlistFragment : Fragment(), ClickListenerPokemon{
     private val viewModel: PokemonlistViewModel by viewModels()
     private var pokemonListAdapter: PokemonListAdapter? = null
     private lateinit var pref: SharedPreferences
-
+    private lateinit var userID: String
     var pokemonSelected: ArrayList<PokemonSpecie> = ArrayList()
 
     override fun onCreateView(
@@ -47,6 +47,7 @@ class PokemonlistFragment : Fragment(), ClickListenerPokemon{
         super.onViewCreated(view, savedInstanceState)
 
         pref = requireActivity().getSharedPreferences("MyPref", 0)
+        userID = pref.getString("userId", "").toString()
         pokemonListAdapter = PokemonListAdapter(this)
         binding.recyclerview.layoutManager = LinearLayoutManager(context)
         binding.recyclerview.adapter = pokemonListAdapter
@@ -74,9 +75,8 @@ class PokemonlistFragment : Fragment(), ClickListenerPokemon{
                                 team = Team(
                                     id = UUID.randomUUID().toString(),
                                     name = nameTeam,
-                                    pokemons = mutableListOf(),
-                                    pref.getString("userId", "").toString()
-                            ))
+                                    pokemons = mutableListOf()
+                            ),userID = userID)
                         }
                     ).show(parentFragmentManager, "dialog")
                 }
