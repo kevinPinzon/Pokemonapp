@@ -30,8 +30,4 @@ class SignInViewModel @Inject constructor(
         }
     }
 
-    fun loginWithGoogle() {
-    }
-
-
 }

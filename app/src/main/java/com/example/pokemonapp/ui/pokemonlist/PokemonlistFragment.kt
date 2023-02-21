@@ -1,35 +1,36 @@
 package com.example.pokemonapp.ui.pokemonlist
 
-import android.app.Dialog
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
-import android.widget.Button
-import android.widget.TextView
+import android.widget.Toast
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.pokemonapp.R
+import com.example.pokemonapp.data.model.Pokemon
 import com.example.pokemonapp.data.model.PokemonList
 import com.example.pokemonapp.data.model.PokemonSpecie
+import com.example.pokemonapp.data.model.Team
 import com.example.pokemonapp.databinding.FragmentPokemonlistBinding
-import com.example.pokemonapp.ui.adapter.PokemonListAdapter
+import com.example.pokemonapp.ui.components.adapter.PokemonListAdapter
+import com.example.pokemonapp.ui.components.dialog.AddTeamDialog
+import com.example.pokemonapp.utils.Resource
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
+import kotlin.collections.ArrayList
 
+@AndroidEntryPoint
 class PokemonlistFragment : Fragment(), ClickListenerPokemon{
 
     private var _binding: FragmentPokemonlistBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: PokemonlistViewModel by viewModels()
-    private var pokemonListAdapter: PokemonListAdapter?= null
+    private var pokemonListAdapter: PokemonListAdapter? = null
 
     var pokemonSelected: ArrayList<PokemonSpecie> = ArrayList()
 
@@ -65,7 +66,17 @@ class PokemonlistFragment : Fragment(), ClickListenerPokemon{
                     Snackbar.make(requireView(), "No puede seleccionar mas de 6 pokemon.", Snackbar.LENGTH_LONG).show()
                 }
                 else -> {
-                    Snackbar.make(it, "Se abre formulario", Snackbar.LENGTH_LONG).show()
+                    AddTeamDialog(
+                        onSubmitClickListener = { nameTeam ->
+                            viewModel.createTeam(
+                                pokemonSelected = pokemonSelected,
+                                team = Team(
+                                    id = UUID.randomUUID().toString(),
+                                    name = nameTeam,
+                                    pokemons = mutableListOf(),""
+                                ))
+                        }
+                    ).show(parentFragmentManager, "dialog")
                 }
             }
         }
@@ -74,6 +85,22 @@ class PokemonlistFragment : Fragment(), ClickListenerPokemon{
     private fun initObservers() {
         viewModel.progressState.observe(viewLifecycleOwner) { show ->
             binding.progress.isVisible = show
+        }
+        viewModel.creatTeamState.observe(viewLifecycleOwner) { state ->
+            when(state) {
+                is Resource.Success -> {
+                    binding.progress.isVisible = false
+                    Snackbar.make(requireView(), "Pokemon team created successfully.", Snackbar.LENGTH_LONG).show()
+                    activity?.onBackPressed()
+                }
+                is Resource.Error -> {
+                    binding.progress.isVisible = false
+                    Snackbar.make(requireView(), "Error, pokemon team has not been created.", Snackbar.LENGTH_LONG).show()
+                    activity?.onBackPressed()
+                }
+                is Resource.Loading -> binding.progress.isVisible = true
+                else -> Unit
+            }
         }
         viewModel.pokemonLiveList.observe(viewLifecycleOwner) {
             pokemonListAdapter?.setItems(list = it)

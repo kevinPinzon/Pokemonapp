@@ -44,7 +44,7 @@ class SignInFragment : Fragment() {
             when(state) {
                 is Resource.Success -> {
                     handleLoading(isLoading = false)
-//                    findNavController().navigate(R.id.action_nav_login_to_nav_home)
+                   println("User data ${state.data}")
                     Toast.makeText(
                         requireContext(),
                         "Bienvenido",
@@ -91,12 +91,6 @@ class SignInFragment : Fragment() {
                 viewModel.login(
                     binding.etEmail.text.toString(), binding.etPassword.text.toString()
                 )
-            }
-
-            googleSignInButton.setOnClickListener {
-                viewModel.loginWithGoogle()
-                val card1 = Intent(activity, PokemonActivity::class.java)
-                activity?.startActivity(card1)
             }
         }
     }

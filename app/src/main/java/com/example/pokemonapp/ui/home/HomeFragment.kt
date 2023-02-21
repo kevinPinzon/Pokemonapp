@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pokemonapp.R
 import com.example.pokemonapp.data.model.PokeRegion
 import com.example.pokemonapp.databinding.FragmentHomeBinding
-import com.example.pokemonapp.ui.adapter.RegionAdapter
+import com.example.pokemonapp.ui.components.adapter.RegionAdapter
 
 class HomeFragment : Fragment(), ClickListener{
 

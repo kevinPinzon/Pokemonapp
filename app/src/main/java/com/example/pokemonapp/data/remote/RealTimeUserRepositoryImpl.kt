@@ -12,7 +12,6 @@ class RealTimeUserRepositoryImpl @Inject constructor(
 ): UserRepository{
 
     override suspend fun createUser(user: User): Boolean {
-        // Write a message to the database
         return try {
             var isSuccessful = false
             realtime.getReference("users")

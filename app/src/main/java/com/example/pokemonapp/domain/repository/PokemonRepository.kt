@@ -17,4 +17,6 @@ class PokemonRepository {
 
     suspend fun getPokemonByPokedex(pokedexName: String) = apiService?.getPokemonByPokedex("pokedex/$pokedexName")
 
+    suspend fun getPokemonData(pokemonName: String) = apiService?.getPokemonData("pokemon/$pokemonName")
+
 }

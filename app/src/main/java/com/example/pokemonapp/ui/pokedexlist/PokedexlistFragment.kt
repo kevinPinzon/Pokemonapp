@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pokemonapp.R
 import com.example.pokemonapp.data.model.Pokedex
 import com.example.pokemonapp.databinding.FragmentPokedexBinding
-import com.example.pokemonapp.ui.adapter.PokedexAdapter
+import com.example.pokemonapp.ui.components.adapter.PokedexAdapter
 
 class PokedexlistFragment : Fragment(), ClickListenerPokedex {
 
