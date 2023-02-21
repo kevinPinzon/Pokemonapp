@@ -1,16 +1,15 @@
 package com.example.pokemonapp.ui.pokemonlist
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.pokemonapp.data.model.Pokemon
 import com.example.pokemonapp.data.model.PokemonList
 import com.example.pokemonapp.data.model.PokemonSpecie
 import com.example.pokemonapp.data.model.Team
@@ -31,6 +30,7 @@ class PokemonlistFragment : Fragment(), ClickListenerPokemon{
 
     private val viewModel: PokemonlistViewModel by viewModels()
     private var pokemonListAdapter: PokemonListAdapter? = null
+    private lateinit var pref: SharedPreferences
 
     var pokemonSelected: ArrayList<PokemonSpecie> = ArrayList()
 
@@ -46,6 +46,7 @@ class PokemonlistFragment : Fragment(), ClickListenerPokemon{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        pref = requireActivity().getSharedPreferences("MyPref", 0)
         pokemonListAdapter = PokemonListAdapter(this)
         binding.recyclerview.layoutManager = LinearLayoutManager(context)
         binding.recyclerview.adapter = pokemonListAdapter
@@ -73,8 +74,9 @@ class PokemonlistFragment : Fragment(), ClickListenerPokemon{
                                 team = Team(
                                     id = UUID.randomUUID().toString(),
                                     name = nameTeam,
-                                    pokemons = mutableListOf(),""
-                                ))
+                                    pokemons = mutableListOf(),
+                                    pref.getString("userId", "").toString()
+                            ))
                         }
                     ).show(parentFragmentManager, "dialog")
                 }
