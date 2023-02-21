@@ -3,6 +3,7 @@ package com.example.pokemonapp.ui.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokemonapp.R
@@ -33,9 +34,9 @@ class PokemonListAdapter (private val listener: ClickListenerPokemon):
 
     override fun onBindViewHolder(holder: PokemonListViewHolder, position: Int) {
         holder.setItem(itemList[position])
-
         holder.itemView.setOnClickListener {
             listener.pokemonSelect(itemList[position])
+            holder.updateCheckbox(itemList[position])
         }
     }
 

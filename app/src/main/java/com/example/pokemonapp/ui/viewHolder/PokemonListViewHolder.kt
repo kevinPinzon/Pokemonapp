@@ -1,5 +1,6 @@
 package com.example.pokemonapp.ui.viewHolder
 
+import android.annotation.SuppressLint
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokemonapp.data.model.PokemonList
 
@@ -12,9 +13,22 @@ class PokemonListViewHolder(binding: PokemonRowBinding): RecyclerView.ViewHolder
         this.binding = binding
     }
 
-    fun setItem(model: PokemonList) {
-        binding?.let { view->
-            view.pokemonName = model.pokemonSpecie.pokemonName
+    fun updateCheckbox(model: PokemonList) {
+        binding?.let { view ->
+            view.checkbox.isChecked = model.pokemonSpecie.selected
         }
     }
+
+    fun setItem(model: PokemonList) {
+        binding?.let { view ->
+            view.pokemonName = model.pokemonSpecie.pokemonName
+            view.checkbox.isChecked = model.pokemonSpecie.selected
+            view.checkbox.setOnClickListener {
+                view.pokeLayout.callOnClick()
+            }
+        }
+    }
+
+
+
 }
