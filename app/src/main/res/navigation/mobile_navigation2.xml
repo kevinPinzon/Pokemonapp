@@ -23,7 +23,15 @@
         android:id="@+id/navigation_teams"
         android:name="com.example.pokemonapp.ui.team.TeamsFragment"
         android:label="@string/title_teams"
-        tools:layout="@layout/fragment_teams"/>
+        tools:layout="@layout/fragment_teams">
+        <action
+            android:id="@+id/action_navigation_teams_to_navigation_teamdetail"
+            app:destination="@id/navigation_teamdetail">
+            <argument
+                android:name="teamData"
+                app:argType="com.example.pokemonapp.data.model.Team" />
+        </action>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_pokedex"
@@ -50,6 +58,16 @@
         <argument
             android:name="pokedexName"
             app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_teamdetail"
+        android:name="com.example.pokemonapp.ui.teamdetails.TeamDetailsFragment"
+        android:label="@string/title_teamdetails"
+        tools:layout="@layout/fragment_teamdetails">
+        <argument
+            android:name="teamData"
+            app:argType="com.example.pokemonapp.data.model.Team" />
     </fragment>
 
 </navigation>

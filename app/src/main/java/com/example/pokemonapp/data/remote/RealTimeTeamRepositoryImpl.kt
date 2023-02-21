@@ -1,12 +1,9 @@
 package com.example.pokemonapp.data.remote
 
 import android.util.Log
-import com.example.pokemonapp.data.model.Pokemon
 import com.example.pokemonapp.data.model.Team
-import com.example.pokemonapp.data.model.User
 import com.example.pokemonapp.domain.repository.TeamRepository
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ktx.getValue
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 

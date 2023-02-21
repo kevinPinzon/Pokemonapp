@@ -1,10 +1,12 @@
 package com.example.pokemonapp.data.model
 
+import java.io.Serializable
+
 data class Team(
     var id: String = "",
     var name: String = "",
     var pokemons: MutableList<Pokemon> = mutableListOf()
-)
+) : Serializable
 
 data class Pokemon(
     val pokemonName: String = "",

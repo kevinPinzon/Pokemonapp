@@ -15,12 +15,14 @@
         <entry key="app/src/main/res/layout/fragment_pokedex.xml" value="0.41354166666666664" />
         <entry key="app/src/main/res/layout/fragment_pokemonlist.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/fragment_pokemons.xml" value="0.19630192502532928" />
+        <entry key="app/src/main/res/layout/fragment_teamdetails.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/fragment_teams.xml" value="0.335" />
         <entry key="app/src/main/res/layout/pokedex_row.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/pokemon_row.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/region_row.xml" value="0.25" />
         <entry key="app/src/main/res/layout/sigin_fragment.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/team_row.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/teamdetail_row.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.4036458333333333" />
       </map>
     </option>

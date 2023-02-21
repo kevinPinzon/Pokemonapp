@@ -73,8 +73,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-259" />
-                            <option name="y" value="86" />
+                            <option name="x" value="-238" />
+                            <option name="y" value="60" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -94,8 +94,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="37" />
-                            <option name="y" value="164" />
+                            <option name="x" value="-242" />
+                            <option name="y" value="410" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -122,6 +122,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="navigation_teamdetail">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="3" />
+                            <option name="y" value="94" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="navigation_teams">
                     <value>
                       <LayoutPositions>
@@ -130,6 +142,15 @@
                             <option name="x" value="-2" />
                             <option name="y" value="-283" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_navigation_teams_to_navigation_teamdetail">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>

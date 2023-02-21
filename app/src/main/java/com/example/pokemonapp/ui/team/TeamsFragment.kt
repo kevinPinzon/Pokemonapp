@@ -5,14 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.runtime.snapshots.Snapshot.Companion.observe
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pokemonapp.R
-import com.example.pokemonapp.data.model.Pokedex
 import com.example.pokemonapp.data.model.Team
 import com.example.pokemonapp.databinding.FragmentTeamsBinding
 import com.example.pokemonapp.ui.components.adapter.TeamListAdapter
@@ -26,7 +24,7 @@ class TeamsFragment : Fragment(), ClickListenerTeam {
     private val binding get() = _binding!!
 
     private val viewModel: TeamsViewModel by viewModels()
-    private var teamListAdapter: TeamListAdapter?= null
+    private var teamListAdapter: TeamListAdapter? = null
 
     lateinit var pref: SharedPreferences
     private lateinit var userID: String
@@ -97,10 +95,9 @@ class TeamsFragment : Fragment(), ClickListenerTeam {
     }
 
     override fun teamSelect(data: Team) {
-        val bundle = bundleOf("teamName" to data.name)
-//        findNavController().navigate(
-//            R.id.action_navigation_pokedex_to_navigation_pokemons,
-//            bundle)
+        val bundle = bundleOf()
+        bundle.putSerializable("teamData", data)
+        findNavController().navigate(R.id.action_navigation_teams_to_navigation_teamdetail, bundle)
     }
 }
 
