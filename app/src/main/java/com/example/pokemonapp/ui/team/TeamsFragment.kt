@@ -6,19 +6,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.runtime.snapshots.Snapshot.Companion.observe
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.pokemonapp.R
+import com.example.pokemonapp.data.model.Pokedex
+import com.example.pokemonapp.data.model.Team
 import com.example.pokemonapp.databinding.FragmentTeamsBinding
+import com.example.pokemonapp.ui.components.adapter.TeamListAdapter
 import com.example.pokemonapp.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class TeamsFragment : Fragment() {
+class TeamsFragment : Fragment(), ClickListenerTeam {
 
     private var _binding: FragmentTeamsBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: TeamsViewModel by viewModels()
+    private var teamListAdapter: TeamListAdapter?= null
+
     lateinit var pref: SharedPreferences
     private lateinit var userID: String
 
@@ -35,8 +44,14 @@ class TeamsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         pref = requireActivity().getSharedPreferences("MyPref", 0)
         userID = pref.getString("userId", "").toString()
+
         initObservers()
         initListeners()
+
+        teamListAdapter = TeamListAdapter(this)
+        binding.recyclerview.layoutManager = LinearLayoutManager(context)
+        binding.recyclerview.adapter = teamListAdapter
+
         viewModel.getTeams(userID)
     }
 
@@ -44,20 +59,29 @@ class TeamsFragment : Fragment() {
         viewModel.teamsState.observe(viewLifecycleOwner) { state ->
             when(state) {
                 is Resource.Success -> {
-                    state
-                    println(state)
+                    binding.progress.visibility = View.GONE
+                    binding.emptyImg.visibility = View.GONE
+                    binding.tvName.visibility = View.GONE
+                    binding.recyclerview.visibility = View.VISIBLE
+                    teamListAdapter?.setItems(list = state.data)
                 }
                 is Resource.Error -> {
-                    state
-                    println(state)
+                    binding.recyclerview.visibility = View.GONE
+                    binding.progress.visibility = View.GONE
+                    binding.emptyImg.visibility = View.VISIBLE
+                    binding.tvName.visibility = View.VISIBLE
                 }
                 is Resource.Loading ->{
-                    state
-                    println(state)
+                    binding.emptyImg.visibility = View.GONE
+                    binding.tvName.visibility = View.GONE
+                    binding.recyclerview.visibility = View.VISIBLE
+                    binding.progress.visibility = View.VISIBLE
                 }
                 else -> {
-                    state
-                    println(state)
+                    binding.recyclerview.visibility = View.GONE
+                    binding.progress.visibility = View.GONE
+                    binding.emptyImg.visibility = View.VISIBLE
+                    binding.tvName.visibility = View.VISIBLE
                 }
             }
         }
@@ -71,4 +95,15 @@ class TeamsFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    override fun teamSelect(data: Team) {
+        val bundle = bundleOf("teamName" to data.name)
+//        findNavController().navigate(
+//            R.id.action_navigation_pokedex_to_navigation_pokemons,
+//            bundle)
+    }
+}
+
+interface ClickListenerTeam {
+    fun teamSelect(data: Team)
 }

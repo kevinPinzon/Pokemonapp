@@ -1,5 +1,7 @@
 package com.example.pokemonapp.data.remote
 
+import android.util.Log
+import com.example.pokemonapp.data.model.Pokemon
 import com.example.pokemonapp.data.model.Team
 import com.example.pokemonapp.data.model.User
 import com.example.pokemonapp.domain.repository.TeamRepository
@@ -33,10 +35,13 @@ class RealTimeTeamRepositoryImpl @Inject constructor(
             realtime.getReference("users")
                 .child(userId).child("teams").get()
                 .addOnSuccessListener { response ->
-                    var result = response.value as HashMap<String, Team>
-                    result.map { element ->
-                        pokemonTeams.add(element.value)
+                    response.children.forEach { teamSnapShot ->
+                        var team: Team? = teamSnapShot.getValue(Team::class.java)
+                        team?.let { pokemonTeams.add(it) }
                     }
+                }
+                .addOnFailureListener{
+                    Log.e("firebase", "Error getting data", it)
                 }.await()
             pokemonTeams
         } catch (e: Exception) {
