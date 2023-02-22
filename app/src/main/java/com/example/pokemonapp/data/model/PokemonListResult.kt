@@ -18,5 +18,7 @@ data class PokemonList(
 
 data class PokemonSpecie(
     @SerializedName("name") val pokemonName: String,
-    @SerializedName("selected") var selected: Boolean = false
+    @SerializedName("selected") var selected: Boolean = false,
+    @SerializedName("url") val pokemonNumber: String
+
 )
