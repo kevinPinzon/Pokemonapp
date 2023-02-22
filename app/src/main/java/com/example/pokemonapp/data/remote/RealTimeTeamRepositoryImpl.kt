@@ -34,7 +34,10 @@ class RealTimeTeamRepositoryImpl @Inject constructor(
                 .addOnSuccessListener { response ->
                     response.children.forEach { teamSnapShot ->
                         var team: Team? = teamSnapShot.getValue(Team::class.java)
-                        team?.let { pokemonTeams.add(it) }
+                        team?.let {
+                            if (it.enable)
+                                pokemonTeams.add(it)
+                        }
                     }
                 }
                 .addOnFailureListener{
@@ -43,6 +46,25 @@ class RealTimeTeamRepositoryImpl @Inject constructor(
             pokemonTeams
         } catch (e: Exception) {
             mutableListOf()
+        }
+    }
+
+    override suspend fun deleteTeams(team: Team, userId: String): Boolean {
+        return try {
+            var isSuccessful = true
+
+            val childUpdates = hashMapOf<String, Any>(
+                "/teams/${team.id}" to team
+            )
+            realtime.getReference("users")
+                .child(userId).updateChildren(childUpdates)
+                .addOnCompleteListener {
+                    isSuccessful = it.isSuccessful
+                }
+                .await()
+            isSuccessful
+        } catch (e: Exception) {
+            false
         }
     }
 

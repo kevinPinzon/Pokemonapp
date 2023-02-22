@@ -7,4 +7,6 @@ interface TeamRepository {
     suspend fun createTeam(team: Team, userId: String): Boolean
 
     suspend fun getTeams(userId: String): MutableList<Team>
+
+    suspend fun deleteTeams(team: Team, userId: String): Boolean
 }

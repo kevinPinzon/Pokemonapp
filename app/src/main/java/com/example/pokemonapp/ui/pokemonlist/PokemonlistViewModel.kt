@@ -45,7 +45,6 @@ class PokemonlistViewModel @Inject constructor(
     }
 
     suspend fun getPokemonData(pokemonSelected: ArrayList<PokemonSpecie>){
-//        _progressState.value = true
         pokemonListData.clear()
         pokemonSelected.forEach{ pokeElement ->
             val response = repository.getPokemonData(pokeElement.pokemonName)

@@ -5,7 +5,8 @@ import java.io.Serializable
 data class Team(
     var id: String = "",
     var name: String = "",
-    var pokemons: MutableList<Pokemon> = mutableListOf()
+    var pokemons: MutableList<Pokemon> = mutableListOf(),
+    var enable: Boolean = true
 ) : Serializable
 
 data class Pokemon(

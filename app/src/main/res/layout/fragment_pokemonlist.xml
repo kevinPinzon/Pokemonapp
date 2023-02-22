@@ -35,7 +35,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            style="@style/TextAppearance.AppCompat.Body1"
+            style="@style/TextAppearance.AppCompat.Subhead"
             tools:text="Let’s Go: Pikachu/Let’s Go: Eevee Kanto dex" />
 
         <androidx.recyclerview.widget.RecyclerView

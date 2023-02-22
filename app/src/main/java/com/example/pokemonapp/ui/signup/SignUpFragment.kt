@@ -81,7 +81,7 @@ class SignUpFragment: Fragment() {
         with(binding) {
             bSignUp.setOnClickListener {
                 viewModel.signUp(
-                    "Kevin Alexander", binding.etEmail.text.toString(), binding.etPassword.text.toString()
+                    "username", binding.etEmail.text.toString(), binding.etPassword.text.toString()
                 )
             }
         }

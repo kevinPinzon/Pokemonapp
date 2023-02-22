@@ -92,12 +92,12 @@ class PokemonlistFragment : Fragment(), ClickListenerPokemon{
             when(state) {
                 is Resource.Success -> {
                     binding.progress.isVisible = false
-                    Snackbar.make(requireView(), "Pokemon team created successfully.", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(requireView(), "Pokemon team created successfully.", Snackbar.LENGTH_SHORT).show()
                     activity?.onBackPressed()
                 }
                 is Resource.Error -> {
                     binding.progress.isVisible = false
-                    Snackbar.make(requireView(), "Error, pokemon team has not been created.", Snackbar.LENGTH_LONG).show()
+                    Snackbar.make(requireView(), "Error, pokemon team has not been created.", Snackbar.LENGTH_SHORT).show()
                     activity?.onBackPressed()
                 }
                 is Resource.Loading -> binding.progress.isVisible = true
