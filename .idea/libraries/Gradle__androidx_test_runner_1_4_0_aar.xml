@@ -3,8 +3,9 @@
     <CLASSES>
       <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/cfeef291d91a9a60c9f84dea015b5b5a/transformed/runner-1.4.0/res" />
       <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/6212f9ee178dab735ac7b503bff2da24/transformed/runner-1.4.0/res" />
-      <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/6212f9ee178dab735ac7b503bff2da24/transformed/runner-1.4.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/Library/Android/sdk/caches/transforms-3/6212f9ee178dab735ac7b503bff2da24/transformed/runner-1.4.0/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/Library/Android/sdk/caches/transforms-3/5576d2bf1178f6b478a0c80b23d6b8cf/transformed/runner-1.4.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/5576d2bf1178f6b478a0c80b23d6b8cf/transformed/runner-1.4.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/5576d2bf1178f6b478a0c80b23d6b8cf/transformed/runner-1.4.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/Library/Android/sdk/caches/modules-2/files-2.1/androidx.test/runner/1.4.0/aee6a62a26d9b413dadc1732e66cc4ef3bcf9d61/runner-1.4.0-javadoc.jar!/" />

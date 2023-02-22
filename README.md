@@ -11,6 +11,7 @@ Caracteristicas del proyecto:
 * Se guardan y se listan equipos pokemon en RTDB
 * Se emplemento glide para mostrar imagenes de pokemon
 * Se emplemento retrofit para cargar datos de https://pokeapi.co/
+* Se implemento Crashlytics 
 * Esquema utilizado en RTDB:
 Users {
     id {

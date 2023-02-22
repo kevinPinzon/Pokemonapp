@@ -2,9 +2,10 @@
   <library name="Gradle: androidx.arch.core:core-runtime:2.1.0@aar">
     <CLASSES>
       <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/5fd856e5acc4dc8fe91755a93df8039a/transformed/core-runtime-2.1.0/res" />
-      <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/297e08012161c66b768e298036418e43/transformed/core-runtime-2.1.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/Library/Android/sdk/caches/transforms-3/297e08012161c66b768e298036418e43/transformed/core-runtime-2.1.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/297e08012161c66b768e298036418e43/transformed/core-runtime-2.1.0/res" />
+      <root url="jar://$USER_HOME$/Library/Android/sdk/caches/transforms-3/f790d00918ada6c78bbfe6dc343dffd6/transformed/core-runtime-2.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/f790d00918ada6c78bbfe6dc343dffd6/transformed/core-runtime-2.1.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/f790d00918ada6c78bbfe6dc343dffd6/transformed/core-runtime-2.1.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

@@ -2,9 +2,10 @@
   <library name="Gradle: com.google.android.gms:play-services-fido:19.0.1@aar">
     <CLASSES>
       <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/c04d86c967c561b5570c3181afe9363c/transformed/play-services-fido-19.0.1/res" />
-      <root url="jar://$USER_HOME$/Library/Android/sdk/caches/transforms-3/84c7e7d32b69f554f01000d8c1a74dce/transformed/play-services-fido-19.0.1/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/84c7e7d32b69f554f01000d8c1a74dce/transformed/play-services-fido-19.0.1/res" />
-      <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/84c7e7d32b69f554f01000d8c1a74dce/transformed/play-services-fido-19.0.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/Library/Android/sdk/caches/transforms-3/eabfdc73086ee301e8b95aacb4fcc139/transformed/play-services-fido-19.0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/eabfdc73086ee301e8b95aacb4fcc139/transformed/play-services-fido-19.0.1/res" />
+      <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/eabfdc73086ee301e8b95aacb4fcc139/transformed/play-services-fido-19.0.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/Library/Android/sdk/caches/modules-2/files-2.1/com.google.android.gms/play-services-fido/19.0.1/f47139b88eb38e62585ec100c1ef8a4cb73b5ce5/play-services-fido-19.0.1-javadoc.jar!/" />

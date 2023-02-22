@@ -3,8 +3,9 @@
     <CLASSES>
       <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/74cb355c9181b56f79f01e0963b57398/transformed/customview-1.1.0/res" />
       <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/b1c1786aa385682b01f1ae0f47ef4bd5/transformed/customview-1.1.0/res" />
-      <root url="jar://$USER_HOME$/Library/Android/sdk/caches/transforms-3/b1c1786aa385682b01f1ae0f47ef4bd5/transformed/customview-1.1.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/b1c1786aa385682b01f1ae0f47ef4bd5/transformed/customview-1.1.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/10a5c69222376345e8b3e68e81bee10e/transformed/customview-1.1.0/res" />
+      <root url="jar://$USER_HOME$/Library/Android/sdk/caches/transforms-3/10a5c69222376345e8b3e68e81bee10e/transformed/customview-1.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/Library/Android/sdk/caches/transforms-3/10a5c69222376345e8b3e68e81bee10e/transformed/customview-1.1.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
